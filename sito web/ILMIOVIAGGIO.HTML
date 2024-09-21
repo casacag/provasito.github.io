@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Viaggio</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Overlay che sfoca tutto eccetto il pop-up -->
+    <div id="overlay" class="overlay">
+        <div id="vacation-popup" class="popup">
+            <h2>Scegli il tipo di Vacanza</h2>
+            <button class="vacation-option" data-vacation="avventura">Avventura</button>
+            <button class="vacation-option" data-vacation="cultura">Cultura</button>
+            <button class="vacation-option" data-vacation="relax">Relax</button>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <h1>Il Mio Viaggio</h1>
+            <p>Scegli il tipo di vacanza che desideri e scopri cosa Cagliari ha da offrire!</p>
+            <!--<div class="flag-section">
+                <div class="flag-images">
+                    <img src="italiano.png" alt="Italiano" class="flag-icon">
+                    <img src="inglese.png" alt="Inglese" class="flag-icon">
+                    <img src="francese.png" alt="Francese" class="flag-icon">
+                    <img src="spagnolo.png" alt="Spagnolo" class="flag-icon">
+                    <img src="portoghese.png" alt="Portoghese" class="flag-icon">
+                </div>
+            </div> -->
+        </header>
+
+        <!-- Sezione che mostra le raccomandazioni e le immagini con i link -->
+        <section id="suggestions">
+            <h2>Le Tue Raccomandazioni</h2>
+            <div id="vacation-content">
+                <!-- Contenuti dinamici e immagini a seconda della scelta -->
+            </div>
+        </section>
+
+        <section id="home">
+            <a href="cagliari.html" class="btn-link">Home</a>
+        </section>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Sfoca il contenuto della pagina finché non viene selezionata una vacanza
+            $('#main-content').addClass('blur');
+
+            // Mostra raccomandazioni e immagini basate sulla scelta
+            $('.vacation-option').click(function() {
+                const vacationType = $(this).data('vacation');
+                let content = '';
+
+                if (vacationType === 'avventura') {
+                    content = `
+                        <p>Scopri escursioni, spiagge nascoste e attività all’aperto!</p>
+                        <div class="image-grid">
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio avventura/arrampicata.png" alt="Arrampicata">
+                                    <figcaption>Arrampicata</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio avventura/barche.png" alt="Barca">
+                                    <figcaption>Barca</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio avventura/bici.png" alt="Bici">
+                                    <figcaption>Bici</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio avventura/quod.png" alt="Quod">
+                                    <figcaption>Quod</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio avventura/sella del diavolo.png" alt="Sella del Diavolo">
+                                    <figcaption>Sella del Diavolo</figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                    `;
+                } else if (vacationType === 'cultura') {
+                    content = `
+                        <p>Visita i musei, i monumenti storici e le attrazioni culturali di Cagliari.</p>
+                        <div class="image-grid">
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio cultura/chiesa.png" alt="Chiesa">
+                                    <figcaption>Chiesa</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio cultura/museo.png" alt="Museo Archeologico">
+                                    <figcaption>Museo Archeologico</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio cultura/ortobotanico.png" alt="Orto Botanico">
+                                    <figcaption>Orto Botanico</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio cultura/teatro garau.png" alt="Teatro Garau">
+                                    <figcaption>Teatro Garau</figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                    `;
+                } else if (vacationType === 'relax') {
+                    content = `
+                        <p>Rilassati nelle nostre spiagge e nei centri benessere locali.</p>
+                        <div class="image-grid">
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio relax/cala mosca.png" alt="Cala Mosca">
+                                    <figcaption>Cala Mosca</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio relax/parco monteclaro.png" alt="Parco Monteclaro">
+                                    <figcaption>Parco Monteclaro</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio relax/piazza yenne.png" alt="Piazza Yenne">
+                                    <figcaption>Piazza Yenne</figcaption>
+                                </a>
+                            </figure>
+                            <figure>
+                                <a href="https://www.google.it/">
+                                    <img src="viaggio relax/poetto.png" alt="Poetto">
+                                    <figcaption>Poetto</figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                    `;
+                }
+                
+                $('#vacation-content').html(content);
+                $('#overlay').fadeOut(); // Rimuovi l'overlay e mostra la pagina
+                $('#main-content').removeClass('blur'); // Rimuovi l'effetto sfocato
+            });
+        });
+    </script>
+    <footer>
+        <p>Ecco il tuo piano vacanza personalizzato, spero sia stato utile!</p>
+    </footer>
+    <style>
+        /* Sfoca solo il contenuto principale, non il pop-up */
+        #main-content.blur {
+            filter: blur(5px);
+            pointer-events: none; /* Disabilita le interazioni */
+        }
+
+        /* Overlay per bloccare l'interazione fino alla scelta */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Sfondo scuro trasparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Stile del pop-up */
+        .popup {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .vacation-option {
+            background-color: #ff5a5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .vacation-option:hover {
+            background-color: #ff385c;
+        }
+
+        /* Griglia di immagini */
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .image-grid a {
+            display: block;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-grid a:hover img {
+            transform: scale(1.05);
+        }
+        .image-grid figure {
+            margin: 10px;
+            text-align: center; /* Centra le didascalie sotto le immagini */
+        }
+        
+        .image-grid figcaption {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333; /* Colore del testo delle didascalie */
+        }
+    </style>
+
+</body>
+</html>
+
+

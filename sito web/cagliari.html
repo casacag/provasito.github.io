@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuti nella Mia Casa su Airbnb</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Collegamenti a fogli di stile CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Benvenuti nella mia Casa su Airbnb</h1>
+        <p>Goditi il tuo soggiorno a Cagliari!</p>
+        <div class="flag-section">
+
+            <div class="flag-images">
+                <img src="italiano.png" alt="Italiano" class="flag-icon">
+                <img src="inglese.png" alt="Inglese" class="flag-icon">
+                <img src="francese.png" alt="Francese" class="flag-icon">
+                <img src="spagnolo.png" alt="Spagnolo" class="flag-icon">
+                <img src="portoghese.png" alt="Portoghese" class="flag-icon">
+            </div>
+        </div>
+    </header>
+        <!-- Sezione delle regole della casa -->
+    <section id="house-rules">
+        <h2>Regole della Casa</h2>
+        <ul>
+            <li>Check-in: Dalle 15:00</li>
+            <li>Check-out: Entro le 11:00</li>
+            <li>Non sono ammessi animali</li>
+            <li>Non si fuma all'interno</li>
+            <li>Si prega di rispettare i vicini e mantenere il volume basso dopo le 22:00</li>
+        </ul>
+    </section>
+
+    <!-- Sezione video sul Check-in -->
+    <section id="check-in-videos">
+        <h2>Video del Check-in</h2>
+        <p>Guarda i video per rendere il tuo check-in più facile!</p>
+    
+        <!-- Container per i video -->
+        <div class="video-grid">
+            <!-- Video 1 con didascalia -->
+            <figure>
+                <video width="320" height="240" controls>
+                    <source src="VIDEO1.mov" type="video/mp4">
+                    Il tuo browser non supporta la riproduzione di video.
+                </video>
+                <figcaption>Check-in: Guida Passo Passo</figcaption>
+            </figure>
+    
+            <!-- Video 2 con didascalia -->
+            <figure>
+                <video width="320" height="240" controls>
+                    <source src="VIDEO2.mov" type="video/mp4">
+                    Il tuo browser non supporta la riproduzione di video.
+                </video>
+                <figcaption>Come Accedere alla Casa</figcaption>
+            </figure>
+    
+            <!-- Video 3 con didascalia -->
+            <figure>
+                <video width="320" height="240" controls>
+                    <source src="VIDEO3.mov" type="video/mp4">
+                    Il tuo browser non supporta la riproduzione di video.
+                </video>
+                <figcaption>Informazioni sugli Elettrodomestici</figcaption>
+            </figure>
+    
+            <!-- Aggiungi altri video se necessario -->
+        </div>
+    </section>
+    
+    <section id="carousel">
+        <!-- Immagini della casa o della città -->
+    </section>
+
+  
+    <section id="my-trip">
+        <h2>Personalizza il Tuo Viaggio</h2>
+        <p>Vuoi personalizzare il tuo viaggio e scoprire di più su cosa fare a Cagliari? Clicca qui per pianificare la tua vacanza!</p>
+        <a href="ILMIOVIAGGIO.html" class="btn-link">Il mio viaggio</a>
+
+    </section>
+    <script>
+        $(document).ready(function () {
+            $('.attractions-slider').slick({
+                dots: true,
+                arrows: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
+
+    <footer>
+        <p>Pianifica la tua visita a Cagliari oggi e immergiti in un'esperienza unica!</p>
+    </footer>
+
+</body>
+</html>
